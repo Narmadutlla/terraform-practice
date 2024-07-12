@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "rani_gw" {
   }
 }
 
-# create a route table
+# create a public route table
 resource "aws_route_table" "rani_rt" {
   vpc_id = aws_vpc.rani-vpc.id
 
@@ -64,3 +64,25 @@ resource "aws_route_table" "rani_rt" {
     Name = "rani-rt"
   }
 }
+
+# create a private route table
+resource "aws_route_table" "rani_rt_p" {
+  vpc_id = aws_vpc.rani-vpc.id
+
+  tags = {
+    Name = "rani-rt-p"
+  }
+}
+
+resource "aws_route_table_association" "rani_web_rts" {
+  subnet_id      = aws_subnet.rani-subnet1.id
+  route_table_id = aws_route_table.rani_rt_p.id
+}
+
+resource "aws_route_table_association" "rani_db_rts" {
+  subnet_id      = aws_subnet.rani-db-subnet.id
+  route_table_id = aws_route_table.rani_rt_p.id
+
+  resource "aws_route_table_association" "rani_app_rts" {
+  subnet_id      = aws_subnet.rani-app-subnet.id
+  route_table_id = aws_route_table.rani_rt_p.id
