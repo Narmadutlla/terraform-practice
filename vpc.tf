@@ -9,23 +9,23 @@ resource "aws_vpc" "rani-vpc" {
 }
 
 # create subnet for rani web server
-resource "aws_subnet" "rani-subnet1" {
+resource "aws_subnet" "rani-web-subnet" {
   vpc_id     = aws_vpc.rani-vpc.id
   cidr_block = "10.0.1.0/24"
   availability_zone = "us-west-2a"
   map_public_ip_on_launch = "true" 
   tags = {
-    Name = "rani-subnet"
+    Name = "rani-web-subnet"
   }
 }
 
 # create a subnet for rani db
-resource "aws_subnet" "rani-subnet2" {
+resource "aws_subnet" "rani-db-subnet2" {
   vpc_id     = aws_vpc.rani-vpc.id
   cidr_block = "10.0.2.0/24"
-  availability_zone = "us-west-2a"
+  availability_zone = "us-west-2b"
   map_public_ip_on_launch = "true" 
   tags = {
-    Name = "rani-subnet"
+    Name = "rani-db-subnet"
   }
 }
