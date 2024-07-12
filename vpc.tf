@@ -41,3 +41,12 @@ resource "aws_subnet" "rani-db-subnet" {
     Name = "rani-db-subnet"
   }
 }
+
+# create internet gateway for rani
+resource "aws_internet_gateway" "rani_gw" {
+  vpc_id = aws_vpc.rani-vpc.id
+
+  tags = {
+    Name = "rani_gw"
+  }
+}
