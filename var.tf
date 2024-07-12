@@ -1,3 +1,3 @@
-# passing varible/values dynamically
-varible "aws_access_key"
-varible "aws_secret_key"
+# Pass Variables/Values Dynamically
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
