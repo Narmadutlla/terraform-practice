@@ -50,3 +50,17 @@ resource "aws_internet_gateway" "rani_gw" {
     Name = "rani_gw"
   }
 }
+
+# create a route table
+resource "aws_route_table" "rani_rt" {
+  vpc_id = aws_vpc.rani-vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.rani_gw.id
+  }
+
+  tags = {
+    Name = "rani-rt"
+  }
+}
