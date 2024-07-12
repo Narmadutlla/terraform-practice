@@ -79,10 +79,3 @@ resource "aws_route_table_association" "rani_web_rts" {
   route_table_id = aws_route_table.rani_rt_p.id
 }
 
-resource "aws_route_table_association" "rani_db_rts" {
-  subnet_id      = aws_subnet.rani-db-subnet.id
-  route_table_id = aws_route_table.rani_rt_p.id
-
-  resource "aws_route_table_association" "rani_app_rts" {
-  subnet_id      = aws_subnet.rani-app-subnet.id
-  route_table_id = aws_route_table.rani_rt_p.id
