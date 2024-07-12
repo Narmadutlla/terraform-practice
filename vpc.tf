@@ -30,3 +30,14 @@ resource "aws_subnet" "rani-app-subnet" {
   }
 }
 
+
+# create a subnet for rani db
+resource "aws_subnet" "rani-db-subnet" {
+  vpc_id     = aws_vpc.rani-vpc.id
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "us-west-2b"
+  map_public_ip_on_launch = "false" 
+  tags = {
+    Name = "rani-db-subnet"
+  }
+}
