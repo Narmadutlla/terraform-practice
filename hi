@@ -1,0 +1,19 @@
+Option 1: Separate Output Paths in the Script or Pipeline
+You can modify your Fortify SCC and Sonatype scanning scripts or pipeline configurations to specify different output directories for each type of report.
+
+For Fortify SCA:
+When running Fortify SCA via ScanCentral, you can specify the output location of the FPR (Fortify Project Report) file:
+
+bash
+Copy code
+scancentral -b <build-id> -application <application-name> -assessmentType sourceanalyzer -output <path-to-save-fpr>
+For Sonatype (Nexus IQ):
+When you generate a Nexus IQ report using the nexus-iq-cli, you can also specify an output directory:
+
+bash
+Copy code
+java -jar nexus-iq-cli-1.179.0-01.jar -s <nexus-iq-server> -a <credentials> -o <path-to-save-report>
+Make sure you are providing different paths for each, for example:
+
+SCA reports to BDMS/non-prod-audit/sca-reports/
+Sonatype reports to BDMS/non-prod-audit/sonatype-reports/
