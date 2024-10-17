@@ -1,0 +1,32 @@
+168.138.113.116 & 150.230.234.34 (Oracle Cloud Infrastructure):
+
+Purpose: These IPs belong to Oracle Cloud's network, providing cloud services such as computing, storage, and networking. Oracle Cloud Infrastructure is commonly used to host applications, databases, and virtual machines.
+Usage: These IPs could be assigned to virtual machines, databases, or other cloud services that Oracle offers. They can be part of larger applications running in Oracle's data centers.
+Security Implications: As part of a cloud network, traffic to and from these IPs should be monitored for abnormal patterns, ensuring they aren't involved in attacks or unauthorized access attempts.
+103.216.98.0/24 & 103.75.173.0/24 (Indian Service Providers):
+
+Purpose: These IP ranges are associated with Indian ISPs like Tata Communications and Bharti Airtel, typically used to provide internet services to businesses and residential users.
+Usage: They could be allocated to large organizations, data centers, or end-users in India. These IPs would route normal web traffic for businesses or personal use.
+Security Implications: These IP blocks might be used by legitimate businesses, but any unusual traffic (e.g., attempts to access internal networks) from these blocks should be examined to avoid security incidents.
+Cloudflare Dedicated IPs (162.159.152.21 & 162.159.153.243):
+
+Purpose: Cloudflare is a content delivery network (CDN) and security provider that protects websites from DDoS attacks and improves load times by caching content closer to users.
+Usage: These IPs are part of Cloudflare's infrastructure, acting as gateways or load balancers for web traffic. Any traffic passing through these IPs could be for legitimate websites using Cloudflare’s services, such as caching, DDoS protection, or SSL termination.
+Security Implications: Since Cloudflare sits between the user and the actual server, any traffic from these IPs is often filtered and secured. However, it's important to ensure that the services behind these IPs are properly secured as Cloudflare only protects external traffic, not internal vulnerabilities.
+How They Work Together: In a Security Operations Center (SOC), these IPs would be monitored to:
+
+Ensure legitimate traffic is being handled correctly by Cloudflare (protecting against DDoS attacks).
+Monitor Oracle Cloud IPs for any abnormal cloud activity (potential data breaches or unusual service behavior).
+Track traffic from the Indian IP blocks, potentially tied to business clients or vendors, to ensure no unauthorized access is attempted.
+Monitoring and analyzing logs, ensuring that firewall rules are correctly applied, and using threat intelligence feeds can help in the overall security posture.
+
+
+
+
+
+
+
+
+
+
+
